@@ -3,6 +3,7 @@
     package="in.unicodelabs.kdloggingdemo">
 
     <application
+        android:name=".CustomApplicaiton"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,6 +17,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="in.unicodelabs.kdlogging.ui.KdLogListActivity"
+            android:exported="false" />
+
+        <!-- Important: set your own authority name and provide that name in the metadata -->
+
+        <provider
+            android:name="in.unicodelabs.kdlogging.data.KdLoggingProvider"
+            android:authorities="in.unicodelabs.sorbh"
+            android:exported="false" />
+
+        <meta-data
+            android:name="in.unicodelabs.log.authority"
+            android:value="in.unicodelabs.sorbh" />
     </application>
 
 </manifest>

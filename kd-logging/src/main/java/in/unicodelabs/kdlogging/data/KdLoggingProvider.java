@@ -23,7 +23,7 @@ import static in.unicodelabs.kdlogging.data.KdLoggingContract.TABLE;
 
 public class KdLoggingProvider extends ContentProvider {
 
-    private static final String AUTHORITY_KEY = "io.explod.sqllog.log.authority";
+    private static final String AUTHORITY_KEY = "in.unicodelabs.log.authority";
 
     public static void initialize(@NonNull Context applicationContext) {
         String authority = readManifestMetadata(applicationContext, AUTHORITY_KEY);

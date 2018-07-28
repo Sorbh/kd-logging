@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertController;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,18 +45,18 @@ public class KdLogListAdapter extends RecyclerView.Adapter<KdLogListAdapter.LogV
         }
     }
 
-    @Override
-    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder) {
-        if (mCallbacks != null) {
-            int position = viewHolder.getAdapterPosition();
-            mCallbacks.onLogEntryDelete(position);
-        }
-    }
+//    @Override
+//    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder) {
+//        if (mCallbacks != null) {
+//            int position = viewHolder.getAdapterPosition();
+//            mCallbacks.onLogEntryDelete(position);
+//        }
+//    }
 
     @Override
     public KdLogListAdapter.LogViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        View view = LayoutInflater.from(context).inflate(R.layout.item_log_entry, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_kd_log_list, parent, false);
         return new LogViewHolder(view);
     }
 
@@ -96,7 +95,7 @@ public class KdLogListAdapter extends RecyclerView.Adapter<KdLogListAdapter.LogV
         notifyDataSetChanged();
     }
 
-    class LogViewHolder implements View.OnClickListener {
+    class LogViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @NonNull
         final DateFormat timeFormat;
